@@ -39,11 +39,11 @@ public class FileServiceImpl implements IFileService {
         try {
             file.transferTo(targetFile);
             // 文件已经上传成功了
-            //todo 将targetFile上传到我们的FTP服务器上
+            // 将targetFile上传到我们的FTP服务器上
             FTPUtil.uploadFile(Lists.newArrayList(targetFile));
             // 已经上传到ftp服务器上
 
-            // todo 上传完之后，删除upload下面的文件
+            // 上传完之后，删除upload下面的文件
             targetFile.delete();
 
         } catch (IOException e) {
