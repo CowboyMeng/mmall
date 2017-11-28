@@ -22,6 +22,7 @@ public class CookieUtil {
         cookie.setDomain(COOKIE_DOMAIN);
         // 代表设置在根目录
         cookie.setPath("/");
+        cookie.setHttpOnly(true);
         // 单位是秒。如果maxAge不设置的话，cookie就不会写入硬盘，而是写在内存。只在当前页面有效。
         cookie.setMaxAge(60 * 60 * 24 * 365); // 如果是-1，代表永久
         log.info("write cookieName:{},cookieValue:{}", cookie.getName(), cookie.getValue());
@@ -50,6 +51,7 @@ public class CookieUtil {
                 if (StringUtils.equals(cookie.getName(), COOKIE_NAME)) {
                     cookie.setDomain(COOKIE_DOMAIN);
                     cookie.setPath("/");
+                    cookie.setHttpOnly(true);
                     // 设置成0，代表删除此cookie
                     cookie.setMaxAge(0);
                     log.info("del cookieName:{},cookieValue:{}", cookie.getName(), cookie.getValue());
