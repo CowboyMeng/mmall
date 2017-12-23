@@ -33,7 +33,7 @@ public class CloseOrderTask {
         log.info("关闭订单定时任务启动");
         long lockTimeout = Long.parseLong(PropertiesUtil.getProperty("lock.timeout", "5000"));
         Long setnxResult = RedisShardedPoolUtil.setnx(Const.RedisLock.CLOSE_ORDER_TASK_LOCK, String.valueOf(System.currentTimeMillis() + lockTimeout));
-        if (setnxResult != null && setnxResult.intValue() == 0) {
+        if (setnxResult != null && setnxResult.intValue() == 1) {
             // 如果返回值是1，代表设置成功，获取锁
             closeOrder(Const.RedisLock.CLOSE_ORDER_TASK_LOCK);
         } else {
