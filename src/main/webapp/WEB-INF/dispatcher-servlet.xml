@@ -45,7 +45,7 @@
             <!--
                 /manage/a.do    /manage/*
                 /manage/b.do    /manage/*
-                /manage/producy/save.do     /manage/**
+                /manage/product/save.do     /manage/**
                 /manage/order/detail.do     /manage/**
             -->
             <mvc:mapping path="/manage/**" />

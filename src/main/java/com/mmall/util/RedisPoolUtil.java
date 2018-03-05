@@ -43,13 +43,6 @@ public class RedisPoolUtil {
         return result;
     }
 
-    /**
-     * 设置键的失效时间，单位是秒
-     * @param key
-     * @param value
-     * @param exTime
-     * @return
-     */
     public static String setEx(String key, String value, int exTime) {
         Jedis jedis = null;
         String result = null;
@@ -66,6 +59,13 @@ public class RedisPoolUtil {
         return result;
     }
 
+    /**
+     * 设置键的失效时间，单位是秒
+     * @param key
+     * @param value
+     * @param exTime
+     * @return
+     */
     public static Long expire(String key, int exTime) {
         Jedis jedis = null;
         Long result = null;

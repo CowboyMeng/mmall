@@ -21,7 +21,7 @@ public class JsonUtil {
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     static {
-        // 对象的所有字段全部列入
+        // 序列化：对象的所有字段全部列入
         // 四个选项：
         // NON_NULL 非null字段序列化
         // NON_EMPTY    非empty字段序列化
@@ -29,13 +29,13 @@ public class JsonUtil {
         // ALWAYS   全部字段序列化
         objectMapper.setSerializationInclusion(JsonSerialize.Inclusion.ALWAYS);
 
-        // 取消默认日期转换成timestamps形式
+        // 序列化：取消默认日期转换成timestamps形式
         objectMapper.configure(SerializationConfig.Feature.WRITE_DATES_AS_TIMESTAMPS, false);
 
-        // 忽略空bean转json的错误
+        // 序列化：忽略空bean转json的错误
         objectMapper.configure(SerializationConfig.Feature.FAIL_ON_EMPTY_BEANS, false);
 
-        // 所有的日期格式都统一为以下的格式，即：yyyy-MM-dd HH:mm:ss
+        // 序列化和反序列化：所有的日期格式都统一为以下的格式，即：yyyy-MM-dd HH:mm:ss
         objectMapper.setDateFormat(new SimpleDateFormat(DateTimeUtil.STANDARD_FORMAT));
 
         // 反序列时 忽略在json字符串中存在，但是在java对象中不存在对应属性的情况，防止错误。
@@ -127,7 +127,7 @@ public class JsonUtil {
 //        User user2 = new User();
 //        user2.setId(2);
 //        user2.setUsername("zhoumeng");
-
+//
 //        String result1 = JsonUtil.obj2String(user);
 //        String result2 = JsonUtil.obj2StringPretty(user);
 //        User jsonUser1 = JsonUtil.string2Obj(result1, User.class);

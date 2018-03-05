@@ -36,9 +36,9 @@ public class RedisPool {
         config.setTestOnBorrow(testOnBorrow);
         config.setTestOnReturn(testOnReturn);
 
-        // 连接耗尽的时候，是否阻塞。false会抛出异常，true阻塞知道超时。默认为true
+        // 连接耗尽的时候，是否阻塞。false会抛出异常，true阻塞直到超时。默认为true
         config.setBlockWhenExhausted(true);
-
+        // timeout: 超时时间，单位是毫秒
         pool = new JedisPool(config, redisIp, redisPort, 1000 * 2);
 
     }

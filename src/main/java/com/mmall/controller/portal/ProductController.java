@@ -47,8 +47,8 @@ public class ProductController {
 
     }
 
-    // 总结：resrful风格的url匹配不是按参数类型来匹配的，而是按照url形式规则来匹配的！
-    // http://www.cowboymeng.shop/product/100012/手机/1/10/price_asc
+    // 总结：restful风格的url匹配不是按参数类型来匹配的，而是按照url形式规则来匹配的！
+    // http://www.cowboymeng.shop/product/手机/100012/1/10/price_asc
     @RequestMapping("{keyword}/{categoryId}/{pageNum}/{pageSize}/{orderBy}")
     @ResponseBody
     public ServerResponse<PageInfo> listRESTful(@PathVariable(value = "keyword") String keyword,

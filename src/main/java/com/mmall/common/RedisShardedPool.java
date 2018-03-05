@@ -51,6 +51,7 @@ public class RedisShardedPool {
         List<JedisShardInfo> jedisShardInfoList = new ArrayList<>();
         jedisShardInfoList.add(info1);
         jedisShardInfoList.add(info2);
+        // MURMUR_HASH - 默认的分片策略，是一致性hash算法
         pool = new ShardedJedisPool(config, jedisShardInfoList, Hashing.MURMUR_HASH, Sharded.DEFAULT_KEY_TAG_PATTERN);
 
 
